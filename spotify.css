@@ -1,0 +1,445 @@
+body{
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    background-color: black;
+    color: white;
+
+    /* we'll hide the scroll bar option for the entire site first at first 
+    and since only the main-content div has scroll bar for it, we'll change the property later only for main-content */
+    overflow: hidden;
+}
+
+.main{
+    display: flex;
+    height: 100vh;
+    padding: 0.5rem;
+}
+
+.sidebar{
+    background-color: black;
+    width: 340px;
+    border-radius: 1rem; /*1rem= 16px*/
+   
+    margin-right: 0.5rem;
+
+}
+
+.main_content{
+    background-color: #121212;
+
+    /* occupy all the space that remains after other elements have occupied
+    their space */
+    flex: 1;
+    border-radius: 1rem;
+    overflow: auto;
+    padding: 0 1.5rem 0 1.5rem;
+    /* scroll bar will be visible for main content div whenever needed ie when
+    the content in the main_content div will get larger than the size it occupies on the screen*/
+  
+    /* new */
+    transition: background-image 0.5s ease-in-out;
+}
+
+.music_player{
+    background-color: black;
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    height: 72px;
+    
+
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+ 
+.nav{
+
+    background-color: #121212;
+    border-radius: 1rem;
+    display: flex;
+    
+    /* all the divs in .nav will now be arranged in a column
+    1 div per row */
+    flex-direction: column;
+
+    /* all divs will be present at the center of the column  p.s direction
+    considered will be column*/
+    justify-content: center;
+    height: 100px;
+    padding: 0.5rem 0.75rem;
+
+
+}
+
+.nav_option{
+
+    /*setting height for a single line/div*/
+    line-height: 2.5rem /*40px*/;
+    opacity: 0.7;
+    padding: 0.5rem /*8px*/ 0.75rem;
+}
+
+.nav_option:hover{
+
+    opacity: 1;
+}
+
+.nav_option i{
+    font-size: 1.25rem;
+}
+
+.nav_option a{
+    font-size: 1rem;
+    margin-left: 1rem;
+}
+
+.library{
+    background-color: #121212;
+    border-radius: 1rem;
+    height: 100%;
+
+    margin-top: 0.5rem;
+    padding: 0.5rem 0.75rem;
+}
+
+.options{
+    /*All the text, img- 'your Library' 'icon img' 'plus, arrow' come in the same line*/
+    display: flex;
+
+    /*creates space bw .icons and .lib_option*/
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.lib_option img {
+    height: 1.25rem;
+    width: 1.25rem;
+
+}
+
+.icons {
+    font-size: 1.25rem;
+    display: flex;
+   
+
+}
+
+.icons i{
+
+    opacity: 0.7;
+    padding: 0.5rem;
+    cursor: pointer;
+}
+
+.icons  i:hover{
+    opacity: 1;
+
+}
+
+.box{
+
+    background-color: #232323;
+    height: 8rem;
+    border-radius: 0.75rem;
+    margin: 0.75rem 0 1.75rem 0;
+    padding:  0.75rem 1rem;
+
+}
+
+.box_p1{
+
+    font-size: 1rem;
+    font-weight: 500;
+    
+}
+
+.box_p2{
+
+    font-size: 0.75rem;
+    opacity: 0.9;
+}
+
+.badge{
+    color: black;
+    background-color: #fff;
+    border-radius: 100px;
+    padding: 0.25rem 1rem;
+    font-weight: 700;
+    margin-top:0.5rem;
+    height: 2rem;
+    width: fit-content;
+}
+  
+.badge:active {
+    transform: scale(1.05);  /*Add a subtle zoom effect */
+}
+
+.badge:hover{
+    cursor: pointer;
+}
+
+.dark_badge{
+    background-color: #000;
+    color: #fff;
+}
+.sticky_nav{
+    position: sticky;
+    top: 0;
+    background-color: #121212;
+    border-radius: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1rem 1rem 1rem;
+
+    /* So thet the paragraphs in card don't overlap the sticky_nav at the top*/
+    z-index: 10;
+}
+
+.sticky_nav_icons img{
+    margin: 0.75rem;
+   
+}
+
+.sticky_nav_icons img:hover{
+    height: 1.5rem;
+    cursor: pointer;
+}
+
+.sticky_nav_options{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.sticky_nav_options:hover{
+    cursor: pointer;
+}
+
+
+@media (max-width: 1000px){
+    .hide{
+        display: none;
+    }
+}
+
+.nav_item{
+    margin-right: 1rem;
+}
+
+.card{
+    background-color: #232323;
+    width: 150px;
+    border-radius: 1rem;
+    padding: 1rem;
+    margin-left: 1.5rem;
+    margin-top: 1rem;
+}
+
+.cards_container{
+
+    /* display:flex since there are multiple cards in one card_contaioner  */
+    display: flex;
+
+    /* If there are multiple cards in one container.. the cards won't be squeezed to fit them in one line 
+    Instead, the size of the cards will be maintained and the rest of the cards will be placed
+    on the new line */
+    flex-wrap: wrap;
+}
+
+.card_img{
+    width: 100%;
+    border-radius: 1rem;
+}
+
+.card_title{
+    font-weight: 600;
+}
+
+.card_info{
+    font-size: 0.85rem;
+    opacity: 0.5
+}
+
+.footer{
+    height: 300px;
+
+    /* So thet the white line doesn't just below the last cards_container
+    and there is some space between them */
+    display: flex;
+    align-items: center;
+
+    /* So that the line comes to the center of the page horzontally */
+    justify-content: center;
+
+}
+
+.line{
+    width: 90%;
+    height: 50%;
+    border-top: 1px solid white;
+    opacity: 0.4;
+}
+
+.music_player{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.album{
+    width: 25%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 0.5rem;
+    margin-left: 3rem;
+}
+
+.player{
+    width: 50%;
+  
+}
+
+.control{
+    width: 25%;
+    
+}
+
+.player_controls{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.player_control_icon{
+    height: 1rem;
+    margin-right: 1.75rem;
+    opacity: 0.7;
+
+}
+
+.player_control_icon:hover{
+
+    opacity:1;
+}
+
+.playback_bar{
+
+    /* To bring playback bar to the center */
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+
+.progress_bar{
+
+    width: 70%;
+
+    /* to remove the by default styling of progress bar (input type range) */
+    appearance: none;
+    background-color: transparent;
+    cursor: pointer;
+
+}
+
+.progress_bar::-webkit-slider-runnable-track{
+
+    background-color: #ddd;
+    border-radius: 100px;
+    height: 0.2rem;
+}
+
+.progress_bar::-webkit-slider-thumb{
+
+    appearance: none;
+    height: 1rem;
+    width: 1rem;
+    background-color: #1bd760;
+    border-radius: 50%;
+    margin-top: -6px;
+
+}
+
+
+.music_img img{
+    width: 3.5rem;
+    border-radius: 0.75rem;
+    padding:0.25rem;
+    margin-right: 0.75rem;
+}
+
+.song_name{
+
+    font-size: 1rem;
+    margin: 0;
+}
+
+.singer_name{
+
+    font-size: 0.70rem;
+    margin: 0;
+}
+
+.album i{
+    margin-left: 1rem;
+    padding:0.25rem;
+    cursor: pointer;
+}
+
+@media (max-width: 1080px){
+    .hide_heart{
+        display: none;
+    }
+}
+
+@media (max-width: 915px){
+    .music_img{
+        display: none;
+    }
+}
+
+.control{
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: center;
+    margin: 2rem;
+    padding:1rem;
+   
+}
+
+.three, .four{
+
+    height: 1.75rem;
+    margin-top: 0.6rem;
+    opacity: 0.6;
+}
+
+.two, .five{
+
+    height: 3rem;
+    opacity: 1;
+}
+
+.two:hover, .five:hover{
+
+    cursor: pointer;
+    height: 3.25rem;
+    opacity: 1;
+}
+
+.three:hover, .four:hover{
+
+    cursor: pointer;
+    height: 2rem;
+    opacity: 1;
+} 
